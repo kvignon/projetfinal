@@ -1,15 +1,20 @@
 package test.schoolboard;
 
-import java.util.List;
+
+
+import static org.junit.Assert.*;
 
 import org.junit.AfterClass;
-import org.junit.Assert;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.util.Assert;
 
-import schoolboard.dao.MatiereDao;
-import schoolboard.model.Matiere;
+import schoolboard.dao.LoginDao;
+import schoolboard.model.Login;
+
+
 
 public class TestJUnit {
 	
@@ -26,19 +31,24 @@ public class TestJUnit {
 	}
 
 	@Test
-	public void testMatiere() {
-		MatiereDao matiereDao = context.getBean(MatiereDao.class);
+	public void testLogin() {
+		LoginDao loginDao = context.getBean(LoginDao.class);
 
-		Matiere jpa = new Matiere("JPA");
-
-		matiereDao.create(jpa);
-
-		Matiere jpaFind = matiereDao.find(jpa.getId());
-
-		Assert.assertEquals("JPA", jpaFind.getNom());
-		Assert.assertEquals(Difficulte.FACILE, jpaFind.getDifficulte());
+		Login virginie = new Login();
 		
-		jpaFind.setNom("JPA/HIBERNATE");
+		virginie.setLogin("Virginie");
+		virginie.setMotDePasse("vi");
+		virginie.setAdmin(true);
+		
+		loginDao.create(virginie);
+
+		Login jpaFind = loginDao.find(virginie.getId());
+		
+		/*Assert.assertEquals("virginie", jpaFind.getNom());
+		Assert.assertEquals("vir", jpaFind.getMotDePasse());
+		Assert.assertEquals(true, jpaFind.getAdmin());*/
+		
+		/*jpaFind.setNom("JPA/HIBERNATE");
 		jpaFind.setDifficulte(Difficulte.IMPOSSIBLE);
 		
 		Matiere jpaUpdate = matiereDao.update(jpaFind);
@@ -58,11 +68,8 @@ public class TestJUnit {
 		
 		List<Matiere> matieresPostDelete = matiereDao.findAll();
 		
-		Assert.assertEquals(1, matieres.size() - matieresPostDelete.size());
+		Assert.assertEquals(1, matieres.size() - matieresPostDelete.size());*/
 	}
 
-	@Test
-	public void testFormation() {
-		System.out.println("test formation");
-	}
+
 }
