@@ -20,7 +20,7 @@ public class ClasseDaoJpa implements ClasseDao {
 	
 	@Override
 	public List<Classe> findAll() {
-		Query query = em.createQuery("from GestionDeClasse");
+		Query query = em.createQuery("from Classe");
 		return query.getResultList();
 	}
 
