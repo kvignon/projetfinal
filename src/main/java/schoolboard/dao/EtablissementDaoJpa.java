@@ -9,40 +9,40 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import vol.metier.dao.AdresseDao;
-import vol.metier.model.Adresse;
+import vol.metier.dao.EtablissementDao;
+import vol.metier.model.Etablissement;
 
 
 @Repository
 @Transactional
-public class AdresseDaoJpa implements AdresseDao {
-
+public class EtablissementDaoJpa implements EtablissementDao {
+	
 	@PersistenceContext
 	private EntityManager em;
 	
 	@Override
-	public List<Adresse> findAll() {
-		Query query = em.createQuery("from Adresse");
+	public List<Etablissement> findAll() {
+		Query query = em.createQuery("from Etablissement");
 		return query.getResultList();
 	}
 
 	@Override
-	public Adresse find(Long id) {
-		return em.find(Adresse.class, id);
+	public Etablissement find(Long id) {
+		return em.find(Etablissement.class, id);
 	}
 
 	@Override
-	public void create(Adresse obj) {
+	public void create(Etablissement obj) {
 		em.persist(obj);
 	}
 
 	@Override
-	public Adresse update(Adresse obj) {
+	public Etablissement update(Etablissement obj) {
 		return em.merge(obj);
 	}
 
 	@Override
-	public void delete(Adresse obj) {
+	public void delete(Etablissement obj) {
 		em.remove(em.merge(obj));
 	}
 
@@ -53,3 +53,4 @@ public class AdresseDaoJpa implements AdresseDao {
 	}
 
 }
+

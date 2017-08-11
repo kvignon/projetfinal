@@ -1,4 +1,4 @@
-package schoolboard.dao;
+package vol.metier.dao.impl;
 
 import java.util.List;
 
@@ -9,7 +9,10 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import schoolboard.model.Matiere;
+import vol.metier.dao.MatiereDao;
+import vol.metier.model.Matiere;
+
+
 
 @Repository
 @Transactional
@@ -17,13 +20,12 @@ public class MatiereDaoJpa implements MatiereDao {
 
 	@PersistenceContext
 	// Recherche un bean spring de type EntityManagerFactory et appelle la
-	// mï¿½thode .createEntityManager()
+	// méthode .createEntityManager()
 	private EntityManager em;
 
 	@Override
 	public List<Matiere> findAll() {
-		//Query query = em.createQuery("from Matiere m left join fetch m.formations f left join fetch f.formateur");
-		Query query = em.createQuery("from Matiere m ");
+		Query query = em.createQuery("from Matiere");
 		return query.getResultList();
 	}
 
@@ -45,6 +47,12 @@ public class MatiereDaoJpa implements MatiereDao {
 	@Override
 	public void delete(Matiere obj) {
 		em.remove(em.merge(obj));
+	}
+
+	@Override
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

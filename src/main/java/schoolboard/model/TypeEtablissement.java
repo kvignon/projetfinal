@@ -1,4 +1,4 @@
-package schoolboard.model;
+package vol.metier.model;
 
 public enum TypeEtablissement {
 	COlLEGE, LYCEE

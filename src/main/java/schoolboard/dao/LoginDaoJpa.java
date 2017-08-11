@@ -1,4 +1,4 @@
-package schoolboard.dao;
+package vol.metier.dao.impl;
 
 import java.util.List;
 
@@ -11,7 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import schoolboard.model.Login;
+import vol.metier.dao.LoginDao;
+import vol.metier.model.Login;
+
+
 
 @Repository
 @Transactional
@@ -45,6 +48,24 @@ public class LoginDaoJpa implements LoginDao {
 	@Override
 	public void delete(Login obj) {
 		em.remove(em.merge(obj));
+	}
+
+	@Override
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Login find(String login) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Login checkLogin(String login, String password) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

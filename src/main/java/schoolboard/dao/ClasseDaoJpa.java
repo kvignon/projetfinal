@@ -1,4 +1,4 @@
-package schoolboard.dao;
+package vol.metier.dao.impl;
 
 import java.util.List;
 
@@ -9,7 +9,8 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import schoolboard.model.Classe;
+import vol.metier.dao.ClasseDao;
+import vol.metier.model.Classe;
 
 @Repository
 @Transactional
@@ -20,7 +21,7 @@ public class ClasseDaoJpa implements ClasseDao {
 	
 	@Override
 	public List<Classe> findAll() {
-		Query query = em.createQuery("from GestionDeClasse");
+		Query query = em.createQuery("from Classe");
 		return query.getResultList();
 	}
 
@@ -42,6 +43,12 @@ public class ClasseDaoJpa implements ClasseDao {
 	@Override
 	public void delete(Classe obj) {
 		em.remove(em.merge(obj));
+	}
+
+	@Override
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

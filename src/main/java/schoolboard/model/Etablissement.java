@@ -3,21 +3,34 @@ package vol.metier.model;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Version;
 
 @Entity
-public class Matiere {
+public class Etablissement {
 
 	private Long id;
 	private String nom;
-	private List<MatiereClient> clients;
+	private Adresse adresse;
 	private int version;
+	private Client client;
 
-	public Matiere() {
+	public Etablissement() {
+	}
+	
+	@OneToOne(mappedBy = "etablissement", fetch = FetchType.LAZY)
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
 	}
 
 	@Id
@@ -30,7 +43,7 @@ public class Matiere {
 		this.id = id;
 	}
 
-	@Column(name = "Nom", length = 50)
+	@Column(name = "nom", length = 100)
 	public String getNom() {
 		return nom;
 	}
@@ -39,17 +52,17 @@ public class Matiere {
 		this.nom = nom;
 	}
 
-	@OneToMany(mappedBy = "matiere")
-	public List<MatiereClient> getClients() {
-		return clients;
+	@Embedded
+	public Adresse getAdresse() {
+		return adresse;
 	}
 
-	public void setClients(List<MatiereClient> clients) {
-		this.clients = clients;
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
 	}
+	
 
 	@Version
-	@Column(name = "Version")
 	public int getVersion() {
 		return version;
 	}

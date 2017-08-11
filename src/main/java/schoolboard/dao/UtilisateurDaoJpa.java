@@ -1,4 +1,4 @@
-package schoolboard.dao;
+package vol.metier.dao.impl;
 
 import java.util.List;
 
@@ -6,43 +6,71 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import schoolboard.model.Utilisateur;
+import vol.metier.dao.ClientDao;
+import vol.metier.dao.MatiereClientDao;
+import vol.metier.model.Client;
+import vol.metier.model.MatiereClient;
 
-@Repository
+
 @Transactional
-public class UtilisateurDaoJpa implements UtilisateurDao {
+@Repository
+public class ClientDaoJpa implements ClientDao {
 
-	@PersistenceContext
+	@PersistenceContext // annotation jpa qui injecte automatiquement l'entity
+						// manager
 	private EntityManager em;
-	
+
+	@Autowired
+	private MatiereClientDao matiereClientDao;
+
 	@Override
-	public List<Utilisateur> findAll() {
-		Query query = em.createQuery("from Utilisateur");
+	public Client find(Long id) {
+		return em.find(Client.class, id);
+	}
+
+	@Override
+	public List<Client> findAll() {
+		Query query = em.createQuery("from Client c left outer join fetch c.login");
 		return query.getResultList();
 	}
 
 	@Override
-	public Utilisateur find(Long id) {
-		return em.find(Utilisateur.class, id);
+	public void create(Client client) {
+		em.persist(client);
+	}
+
+	// un objet récupéré de la base est déjà managé donc les modif se font
+	// automatiquement pas besoin d'update
+	// on utilise update pour merger objet
+	@Override
+	public Client update(Client client) {
+		return em.merge(client);
+
 	}
 
 	@Override
-	public void create(Utilisateur obj) {
-		em.persist(obj);
+	public void delete(Client client) {
+		for (MatiereClient resa : client.getMatieres()) {
+			matiereClientDao.delete(resa);
+		}
+		em.remove(client.getLogin());
+		em.remove(client);
+
 	}
 
 	@Override
-	public Utilisateur update(Utilisateur obj) {
-		return em.merge(obj);
-	}
+	public void delete(Long id) {
+		Client client = find(id);
+		for (MatiereClient resa : client.getMatieres()) {
+			matiereClientDao.delete(resa);
+		}
+		em.remove(client.getLogin());
+		em.remove(client);
 
-	@Override
-	public void delete(Utilisateur obj) {
-		em.remove(em.merge(obj));
 	}
 
 }
-
