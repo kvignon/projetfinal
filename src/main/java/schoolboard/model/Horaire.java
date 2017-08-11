@@ -1,68 +1,74 @@
 package schoolboard.model;
 
-	import java.util.Date;
+import java.util.Date;
 
-	import javax.persistence.Column;
-	import javax.persistence.Entity;
-	import javax.persistence.Id;
-	import javax.persistence.IdClass;
-	import javax.persistence.JoinColumn;
-	import javax.persistence.ManyToOne;
-	import javax.persistence.Temporal;
-	import javax.persistence.TemporalType;
-	import javax.persistence.Version;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Version;
 
-	@Entity
-	public class Horaire {
+import org.springframework.beans.factory.annotation.Autowired;
 
-		private Date heureDeb;
-		private Date heureFin;
-		private Date date;
-		private int version;
-		
-		public Horaire(Date heureDeb, Date heureFin, Date date, int version) {
-			super();
-			this.heureDeb = heureDeb;
-			this.heureFin = heureFin;
-			this.date = date;
-			this.version = version;
-		}
+@Entity
+public class Horaire {
 
-		public Horaire() {
-			super();
-			// TODO Auto-generated constructor stub
-		}
+	@Id
+	@GeneratedValue
+	private Date heureDeb;
+	private Date heureFin;
+	private Date date;
+	private int version;
 
-		public Date getHeureDeb() {
-			return heureDeb;
-		}
+	public Horaire(Date heureDeb, Date heureFin, Date date, int version) {
+		super();
+		this.heureDeb = heureDeb;
+		this.heureFin = heureFin;
+		this.date = date;
+		this.version = version;
+	}
+	
+	@Autowired
+	public Horaire() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-		public void setHeureDeb(Date heureDeb) {
-			this.heureDeb = heureDeb;
-		}
+	public Date getHeureDeb() {
+		return heureDeb;
+	}
 
-		public Date getHeureFin() {
-			return heureFin;
-		}
+	public void setHeureDeb(Date heureDeb) {
+		this.heureDeb = heureDeb;
+	}
 
-		public void setHeureFin(Date heureFin) {
-			this.heureFin = heureFin;
-		}
+	public Date getHeureFin() {
+		return heureFin;
+	}
 
-		public Date getDate() {
-			return date;
-		}
+	public void setHeureFin(Date heureFin) {
+		this.heureFin = heureFin;
+	}
 
-		public void setDate(Date date) {
-			this.date = date;
-		}
+	public Date getDate() {
+		return date;
+	}
 
-		public int getVersion() {
-			return version;
-		}
+	public void setDate(Date date) {
+		this.date = date;
+	}
 
-		public void setVersion(int version) {
-			this.version = version;
-		}
-		
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
+	}
+
 }
