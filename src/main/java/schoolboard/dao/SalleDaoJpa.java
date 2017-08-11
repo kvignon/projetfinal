@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import schoolboard.model.Salle;
-import schoolboard.model.SallePK;
 
 @Repository
 @Transactional
@@ -26,7 +25,7 @@ public class SalleDaoJpa implements SalleDao {
 	}
 
 	@Override
-	public Salle find(SallePK id) {
+	public Salle find(Long id) {
 		return em.find(Salle.class, id);
 	}
 
@@ -44,5 +43,7 @@ public class SalleDaoJpa implements SalleDao {
 	public void delete(Salle obj) {
 		em.remove(em.merge(obj));
 	}
+
+	
 
 }
