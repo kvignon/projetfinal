@@ -1,4 +1,4 @@
-package vol.metier.model;
+package schoolboard.model;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -9,7 +9,7 @@ public class Adresse {
 	private String rue;
 	private String codePostal;
 	private String ville;
-	private String pays;
+	
 
 	public Adresse() {
 	}
@@ -41,13 +41,6 @@ public class Adresse {
 		this.ville = ville;
 	}
 
-	@Column(name = "pays", length = 100)
-	public String getPays() {
-		return pays;
-	}
 
-	public void setPays(String pays) {
-		this.pays = pays;
-	}
 
 }

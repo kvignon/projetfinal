@@ -1,6 +1,6 @@
-package vol.metier.dao;
+package schoolboard.dao;
 
-import vol.metier.model.Etablissement;
+import schoolboard.model.Etablissement;
 
 public interface EtablissementDao extends Dao<Etablissement, Long> {
 

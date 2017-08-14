@@ -1,6 +1,6 @@
-package vol.metier.dao;
+package schoolboard.dao;
 
-import vol.metier.model.Matiere;
+import schoolboard.model.Matiere;
 
 public interface MatiereDao extends Dao<Matiere, Long>{
 	

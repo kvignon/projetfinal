@@ -1,4 +1,4 @@
-package vol.metier.model;
+package schoolboard.model;
 
 import java.util.List;
 
@@ -19,18 +19,9 @@ public class Etablissement {
 	private String nom;
 	private Adresse adresse;
 	private int version;
-	private Client client;
+	
 
 	public Etablissement() {
-	}
-	
-	@OneToOne(mappedBy = "etablissement", fetch = FetchType.LAZY)
-	public Client getClient() {
-		return client;
-	}
-
-	public void setClient(Client client) {
-		this.client = client;
 	}
 
 	@Id

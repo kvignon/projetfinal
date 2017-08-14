@@ -1,4 +1,4 @@
-package vol.metier.model;
+package schoolboard.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,7 +16,7 @@ public class Classe {
 	private Long id;
 	private String classe;
 	private int version;
-	private Client client;
+	
 
 	public Classe() {
 	}
@@ -42,14 +42,6 @@ public class Classe {
 		this.classe = classe;
 	}
 
-	@OneToOne(mappedBy = "classe", fetch = FetchType.LAZY)
-	public Client getClient() {
-		return client;
-	}
-
-	public void setClient(Client client) {
-		this.client = client;
-	}
 	
 	@Version
 	public int getVersion() {

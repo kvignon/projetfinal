@@ -1,4 +1,4 @@
-package vol.metier.dao.impl;
+package schoolboard.dao;
 
 import java.util.List;
 
@@ -9,8 +9,8 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import vol.metier.dao.ClasseDao;
-import vol.metier.model.Classe;
+import schoolboard.dao.ClasseDao;
+import schoolboard.model.Classe;
 
 @Repository
 @Transactional

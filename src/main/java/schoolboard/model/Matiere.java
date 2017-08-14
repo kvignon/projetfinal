@@ -1,4 +1,4 @@
-package vol.metier.model;
+package schoolboard.model;
 
 import java.util.List;
 

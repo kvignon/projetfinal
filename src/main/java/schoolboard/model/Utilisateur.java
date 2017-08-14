@@ -1,4 +1,4 @@
-package vol.metier.model;
+package schoolboard.model;
 
 import java.util.List;
 
@@ -20,15 +20,13 @@ import javax.persistence.Version;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type", length = 15, discriminatorType = DiscriminatorType.STRING)
-public abstract class Client {
+public abstract class Utilisateur {
 
 	private Long id;
 	private String nom;
 	private String numeroTel;
 	private String numeroFax;
 	private String email;
-	private Login login;
-	private Classe classe;
 	private List<MatiereClient> matieres;
 	
 	@OneToOne(fetch = FetchType.EAGER)
