@@ -1,4 +1,4 @@
-package schoolboard.model;
+package schoolboard.metier.model;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Version;
 
 @Entity
@@ -14,10 +15,20 @@ public class Matiere {
 
 	private Long id;
 	private String nom;
-	private List<MatiereClient> clients;
+	private List<MatiereUtilisateur> clients;
 	private int version;
-
+	private String couleur;
+	private EmploiDuTemps edt;
+	
+	public Matiere(String nom,String couleur) {
+		super();
+		this.nom = nom;
+		this.couleur = couleur;
+	}
+	
 	public Matiere() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	@Id
@@ -40,11 +51,11 @@ public class Matiere {
 	}
 
 	@OneToMany(mappedBy = "matiere")
-	public List<MatiereClient> getClients() {
+	public List<MatiereUtilisateur> getClients() {
 		return clients;
 	}
 
-	public void setClients(List<MatiereClient> clients) {
+	public void setClients(List<MatiereUtilisateur> clients) {
 		this.clients = clients;
 	}
 
@@ -58,4 +69,23 @@ public class Matiere {
 		this.version = version;
 	}
 
+	public String getCouleur() {
+		return couleur;
+	}
+
+	public void setCouleur(String couleur) {
+		this.couleur = couleur;
+	}
+	
+	@OneToOne
+	public EmploiDuTemps getEdt() {
+		return edt;
+	}
+
+	public void setEdt(EmploiDuTemps edt) {
+		this.edt = edt;
+	}
+	
+	
+	
 }

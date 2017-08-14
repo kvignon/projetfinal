@@ -1,8 +1,9 @@
-package schoolboard.dao;
+package schoolboard.metier.dao.impl;
 
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
@@ -10,7 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import schoolboard.model.Login;
+import schoolboard.metier.dao.LoginDao;
+import schoolboard.metier.model.Login;
 
 
 

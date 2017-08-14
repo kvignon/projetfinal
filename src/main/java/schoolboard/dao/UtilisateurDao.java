@@ -1,7 +1,7 @@
-package vol.metier.dao;
+package schoolboard.metier.dao;
 
-import vol.metier.model.Client;
+import schoolboard.metier.model.Utilisateur;
 
-public interface ClientDao extends Dao<Client, Long> {
+public interface UtilisateurDao extends Dao<Utilisateur, Long> {
 
 }

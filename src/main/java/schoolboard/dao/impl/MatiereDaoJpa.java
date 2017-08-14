@@ -1,4 +1,4 @@
-package schoolboard.dao;
+package schoolboard.metier.dao.impl;
 
 import java.util.List;
 
@@ -9,40 +9,43 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import schoolboard.dao.AdresseDao;
-import schoolboard.model.Adresse;
+import schoolboard.metier.dao.MatiereDao;
+import schoolboard.metier.model.Matiere;
+
 
 
 @Repository
 @Transactional
-public class AdresseDaoJpa implements AdresseDao {
+public class MatiereDaoJpa implements MatiereDao {
 
 	@PersistenceContext
+	// Recherche un bean spring de type EntityManagerFactory et appelle la
+	// méthode .createEntityManager()
 	private EntityManager em;
-	
+
 	@Override
-	public List<Adresse> findAll() {
-		Query query = em.createQuery("from Adresse");
+	public List<Matiere> findAll() {
+		Query query = em.createQuery("from Matiere");
 		return query.getResultList();
 	}
 
 	@Override
-	public Adresse find(Long id) {
-		return em.find(Adresse.class, id);
+	public Matiere find(Long id) {
+		return em.find(Matiere.class, id);
 	}
 
 	@Override
-	public void create(Adresse obj) {
+	public void create(Matiere obj) {
 		em.persist(obj);
 	}
 
 	@Override
-	public Adresse update(Adresse obj) {
+	public Matiere update(Matiere obj) {
 		return em.merge(obj);
 	}
 
 	@Override
-	public void delete(Adresse obj) {
+	public void delete(Matiere obj) {
 		em.remove(em.merge(obj));
 	}
 

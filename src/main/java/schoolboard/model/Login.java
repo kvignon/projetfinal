@@ -1,4 +1,4 @@
-package schoolboard.model;
+package schoolboard.metier.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,7 +18,8 @@ public class Login {
 	private String motDePasse;
 	private boolean admin;
 	private int version;
-	
+	private Utilisateur client;
+
 	public Login() {
 	}
 
@@ -59,6 +60,14 @@ public class Login {
 		this.admin = admin;
 	}
 
+	@OneToOne(mappedBy = "login", fetch = FetchType.LAZY)
+	public Utilisateur getClient() {
+		return client;
+	}
+
+	public void setClient(Utilisateur client) {
+		this.client = client;
+	}
 
 	@Version
 	public int getVersion() {

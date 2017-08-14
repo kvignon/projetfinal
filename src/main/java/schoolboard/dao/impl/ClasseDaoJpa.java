@@ -1,4 +1,4 @@
-package schoolboard.dao;
+package schoolboard.metier.dao.impl;
 
 import java.util.List;
 
@@ -9,40 +9,39 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import schoolboard.dao.EtablissementDao;
-import schoolboard.model.Etablissement;
-
+import schoolboard.metier.dao.ClasseDao;
+import schoolboard.metier.model.Classe;
 
 @Repository
 @Transactional
-public class EtablissementDaoJpa implements EtablissementDao {
-	
+public class ClasseDaoJpa implements ClasseDao {
+
 	@PersistenceContext
 	private EntityManager em;
 	
 	@Override
-	public List<Etablissement> findAll() {
-		Query query = em.createQuery("from Etablissement");
+	public List<Classe> findAll() {
+		Query query = em.createQuery("from Classe");
 		return query.getResultList();
 	}
 
 	@Override
-	public Etablissement find(Long id) {
-		return em.find(Etablissement.class, id);
+	public Classe find(Long id) {
+		return em.find(Classe.class, id);
 	}
 
 	@Override
-	public void create(Etablissement obj) {
+	public void create(Classe obj) {
 		em.persist(obj);
 	}
 
 	@Override
-	public Etablissement update(Etablissement obj) {
+	public Classe update(Classe obj) {
 		return em.merge(obj);
 	}
 
 	@Override
-	public void delete(Etablissement obj) {
+	public void delete(Classe obj) {
 		em.remove(em.merge(obj));
 	}
 
@@ -53,4 +52,5 @@ public class EtablissementDaoJpa implements EtablissementDao {
 	}
 
 }
+
 

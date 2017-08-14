@@ -1,6 +1,6 @@
-package schoolboard.dao;
+package schoolboard.metier.dao;
 
-import schoolboard.model.Login;
+import schoolboard.metier.model.Login;
 
 public interface LoginDao extends Dao<Login,Long>{
 	

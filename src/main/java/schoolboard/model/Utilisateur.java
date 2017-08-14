@@ -1,4 +1,4 @@
-package schoolboard.model;
+package schoolboard.metier.model;
 
 import java.util.List;
 
@@ -7,6 +7,8 @@ import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -18,29 +20,30 @@ import javax.persistence.OneToOne;
 import javax.persistence.Version;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "type", length = 15, discriminatorType = DiscriminatorType.STRING)
-public abstract class Utilisateur {
+public class Utilisateur {
 
 	private Long id;
 	private String nom;
 	private String numeroTel;
 	private String numeroFax;
 	private String email;
-	private List<MatiereClient> matieres;
-	
-	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "classe_id")
+	private Login login;
+	private Classe classe;
+	private List<MatiereUtilisateur> matieres;
+	private Civilite civilite;
+	private EmploiDuTemps edt;
+		
+	@OneToOne
 	public Classe getClasse() {
 		return classe;
 	}
 	
 	@OneToMany(mappedBy = "client", fetch = FetchType.LAZY)
-	public List<MatiereClient> getMatieres() {
+	public List<MatiereUtilisateur> getMatieres() {
 		return matieres;
 	}
 
-	public void setMatieres(List<MatiereClient> matieres) {
+	public void setMatieres(List<MatiereUtilisateur> matieres) {
 		this.matieres = matieres;
 	}
 
@@ -63,10 +66,10 @@ public abstract class Utilisateur {
 
 	private int version;
 
-	public Client() {
+	public Utilisateur() {
 	}
 
-	public Client(String nom) {
+	public Utilisateur(String nom) {
 		this.nom = nom;
 	}
 
@@ -143,5 +146,23 @@ public abstract class Utilisateur {
 	public void setVersion(int version) {
 		this.version = version;
 	}
+	
+	@Enumerated(EnumType.STRING)
+	public Civilite getCivilite() {
+		return civilite;
+	}
 
+	public void setCivilite(Civilite civilite) {
+		this.civilite = civilite;
+	}
+
+	@OneToOne
+	public EmploiDuTemps getEdt() {
+		return edt;
+	}
+
+	public void setEdt(EmploiDuTemps edt) {
+		this.edt = edt;
+	}
+	
 }

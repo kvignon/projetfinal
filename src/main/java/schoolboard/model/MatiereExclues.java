@@ -1,5 +1,5 @@
-package schoolboard.model;
+package schoolboard.metier.model;
 
 public enum MatiereExclues {
-	MATHS, FRANCAIS, PHYSIQUE, CHIMIE, ANGLAIS, ESPAGNOL, LATIN, GREC, PHILOSOPHIE, ALLEMAND, SES, EPS, EC
+	MATHS, FRANCAIS, PHYSIQUE, CHIMIE, ANGLAIS, ESPAGNOL, LATIN, GREC
 }

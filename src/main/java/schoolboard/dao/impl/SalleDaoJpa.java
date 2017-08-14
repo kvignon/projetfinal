@@ -1,27 +1,33 @@
-package schoolboard.dao;
+package schoolboard.metier.dao.impl;
 
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+import schoolboard.metier.dao.SalleDao;
+import schoolboard.metier.model.Salle;
 
-import schoolboard.model.Salle;
 
-@Repository
-@Transactional
+
+
 public class SalleDaoJpa implements SalleDao {
-
-	@PersistenceContext
+	
+	
 	private EntityManager em;
-
+	
 	@Override
 	public List<Salle> findAll() {
 		Query query = em.createQuery("from Salle");
 		return query.getResultList();
+	}
+
+	public EntityManager getEm() {
+		return em;
+	}
+
+	public void setEm(EntityManager em) {
+		this.em = em;
 	}
 
 	@Override
@@ -44,6 +50,11 @@ public class SalleDaoJpa implements SalleDao {
 		em.remove(em.merge(obj));
 	}
 
-	
+	@Override
+	public void delete(Long id) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
+

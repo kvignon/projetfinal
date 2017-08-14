@@ -1,4 +1,4 @@
-package vol.metier.model;
+package schoolboard.metier.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,17 +10,17 @@ import javax.persistence.Version;
 
 @Entity
 @Table(name = "matiere_client")
-public class MatiereClient {
+public class MatiereUtilisateur {
 
 	private Long id;
 	private Matiere matiere;
-	private Client client;
+	private Utilisateur client;
 	private int version;
 
-	public MatiereClient() {
+	public MatiereUtilisateur() {
 	}
 
-	public MatiereClient(Matiere matiere, Client client) {
+	public MatiereUtilisateur(Matiere matiere, Utilisateur client) {
 		super();
 		this.matiere = matiere;
 		this.client = client;
@@ -57,11 +57,11 @@ public class MatiereClient {
 
 	@ManyToOne
 	@JoinColumn(name = "client_id")
-	public Client getClient() {
+	public Utilisateur getClient() {
 		return client;
 	}
 
-	public void setClient(Client client) {
+	public void setClient(Utilisateur client) {
 		this.client = client;
 	}
 

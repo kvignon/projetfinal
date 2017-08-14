@@ -1,4 +1,4 @@
-package schoolboard.dao;
+package schoolboard.metier.dao.impl;
 
 import java.util.List;
 
@@ -10,10 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import schoolboard.dao.UtilisateurDao;
-import schoolboard.dao.MatiereUtilisateurDao;
-import schoolboard.model.Utilisateur;
-import schoolboard.model.MatiereUtilisateur;
+import schoolboard.metier.dao.UtilisateurDao;
+import schoolboard.metier.dao.MatiereUtilisateurDao;
+import schoolboard.metier.model.MatiereUtilisateur;
+import schoolboard.metier.model.Utilisateur;
 
 
 @Transactional
@@ -66,7 +66,7 @@ public class UtilisateurDaoJpa implements UtilisateurDao {
 	public void delete(Long id) {
 		Utilisateur utilisateur = find(id);
 		for (MatiereUtilisateur resa : utilisateur.getMatieres()) {
-			matiereutilisateurDao.delete(resa);
+			matiereUtilisateurDao.delete(resa);
 		}
 		em.remove(utilisateur.getLogin());
 		em.remove(utilisateur);

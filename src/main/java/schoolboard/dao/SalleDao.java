@@ -1,7 +1,9 @@
-package schoolboard.dao;
+package schoolboard.metier.dao;
 
-import schoolboard.model.Salle;
+import schoolboard.metier.dao.*;
+import schoolboard.metier.model.Salle;;
 
-public interface SalleDao extends Dao<Salle, Long>{
+
+public interface SalleDao extends Dao<Salle, Long> {
 
 }
