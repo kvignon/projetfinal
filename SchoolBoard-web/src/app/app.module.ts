@@ -1,34 +1,61 @@
+import { NgModule, ApplicationRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateService } from '@ngx-translate/core';
+/*
+ * Platform and Environment providers/directives/pipes
+ */
 import { routing } from './app.routing';
 
-import { AlertComponent } from './_directives/index';
-import { AuthGuard } from './_guards/index';
-import { AlertService, AuthenticationService, UserService } from './_services/index';
-import { HomeComponent } from './home/index';
-import { LoginComponent } from './classes/login';
-import { RegisterComponent } from './register/index';
+// App is our top level component
+import { App } from './app.component';
+import { AppState, InternalStateType } from './app.service';
+import { GlobalState } from './global.state';
+import { NgaModule } from './theme/nga.module';
+import { PagesModule } from './pages/pages.module';
 
+// Application wide providers
+const APP_PROVIDERS = [
+  AppState,
+  GlobalState
+];
 
+export type StoreType = {
+  state: InternalStateType,
+  restoreInputValues: () => void,
+  disposeOldHosts: () => void
+};
+
+/**
+ * `AppModule` is the main entry point into Angular2's bootstraping process
+ */
 @NgModule({
+  bootstrap: [App],
   declarations: [
-    AppComponent
-    HomeComponent,
-    LoginComponent,
-     RegisterComponent
+    App
   ],
+
   imports: [
     BrowserModule,
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgaModule.forRoot(),
+    NgbModule.forRoot(),
+    PagesModule,
     routing
   ],
 
   providers: [
-   AlertService,
-   AuthenticationService,
-   UserService,
+    APP_PROVIDERS
+  
   ],
-  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(public appState: AppState) {
+  }
+}
+

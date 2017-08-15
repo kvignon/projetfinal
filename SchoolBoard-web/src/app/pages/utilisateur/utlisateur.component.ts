@@ -1,11 +1,13 @@
-import { Component, OnInit  } from '@angular/core';
+import {Component} from '@angular/core';
+import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
+
 
 @Component({
     selector: 'app-utilisateur',
     templateUrl: './utilisateur.component.html',
     styleUrls: ['./utilisateur.component.css']
 })
-export class UtilisateurComponent implements OnInit {
+export class Utilisateur{
 
     listeUtilisateur: Array<any>;
 
