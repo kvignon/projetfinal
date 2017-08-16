@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'basic-form',
+  selector: 'appbasicform',
   templateUrl: './basicForm.html',
 })
 export class BasicForm {
@@ -9,5 +9,5 @@ export class BasicForm {
   constructor() {
   }
 
-  isChecked: boolean = false;
+  isChecked = false;
 }

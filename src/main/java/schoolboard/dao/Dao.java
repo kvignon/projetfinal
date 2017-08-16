@@ -1,21 +1,11 @@
-package schoolboard.metier.dao;
+package schoolboard.dao;
 
-import java.io.Serializable;
 import java.util.List;
 
-public interface Dao<T,PK extends Serializable> {
-
-	T find(PK id);
-	
+public interface Dao<T,PK> {
 	List<T> findAll();
-	
+	T find(PK id);
 	void create(T obj);
-	
 	T update(T obj);
-	
 	void delete(T obj);
-	
-	void delete(PK id);
-	
-	
 }

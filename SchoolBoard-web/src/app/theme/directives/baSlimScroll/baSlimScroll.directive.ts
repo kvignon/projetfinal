@@ -12,7 +12,7 @@ export class BaSlimScroll {
   constructor(private _elementRef:ElementRef) {
   }
 
-  ngOnChanges(changes) {
+  ngOnChanges(changes) { 
     this._scroll();
   }
 
@@ -20,7 +20,6 @@ export class BaSlimScroll {
     this._destroy();
     this._init();
   }
-
   private _init() {
     jQuery(this._elementRef.nativeElement).slimScroll(this.baSlimScrollOptions);
   }

@@ -4,11 +4,11 @@ import {BaThemeConfigProvider, layoutPaths} from '../../../theme';
 @Injectable()
 export class UsersMapService {
 
-  constructor(private _baConfig:BaThemeConfigProvider) {
+  constructor(private _baConfig: BaThemeConfigProvider) {
   }
 
   getData() {
-    var layoutColors = this._baConfig.get().colors;
+    const layoutColors = this._baConfig.get().colors;
 
     return {
       type: 'map',

@@ -1,46 +1,44 @@
-package schoolboard.metier.model;
+package schoolboard.model;
 
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
 
-import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
-@Table(name="Horaire")
 public class Horaire {
-	
-	private Long id;
+
+	@Id
+	@GeneratedValue
 	private Date heureDeb;
 	private Date heureFin;
 	private Date date;
-	private EmploiDuTemps edt;
 	private int version;
-	
-	public Horaire(Date heureDeb, Date heureFin, Date date) {
+
+	public Horaire(Date heureDeb, Date heureFin, Date date, int version) {
 		super();
 		this.heureDeb = heureDeb;
 		this.heureFin = heureFin;
 		this.date = date;
+		this.version = version;
 	}
 	
+	@Autowired
 	public Horaire() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern="HH:mm")
-	@Column(name="heureDebut")
+
 	public Date getHeureDeb() {
 		return heureDeb;
 	}
@@ -48,10 +46,7 @@ public class Horaire {
 	public void setHeureDeb(Date heureDeb) {
 		this.heureDeb = heureDeb;
 	}
-	
-	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern="HH:mm")
-	@Column(name="heureFin")
+
 	public Date getHeureFin() {
 		return heureFin;
 	}
@@ -59,9 +54,7 @@ public class Horaire {
 	public void setHeureFin(Date heureFin) {
 		this.heureFin = heureFin;
 	}
-	
-	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern="yyyy-MM-dd")
+
 	public Date getDate() {
 		return date;
 	}
@@ -70,7 +63,6 @@ public class Horaire {
 		this.date = date;
 	}
 
-	@Version
 	public int getVersion() {
 		return version;
 	}
@@ -79,23 +71,4 @@ public class Horaire {
 		this.version = version;
 	}
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	@OneToOne
-	public EmploiDuTemps getEdt() {
-		return edt;
-	}
-
-	public void setEdt(EmploiDuTemps edt) {
-		this.edt = edt;
-	}
-	
 }

@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'validation-inputs',
+  selector: 'appvalidationinputs',
   templateUrl: './validationInputs.html',
 })
 export class ValidationInputs {

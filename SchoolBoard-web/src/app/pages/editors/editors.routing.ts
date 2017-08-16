@@ -1,4 +1,4 @@
-import { Routes, RouterModule }  from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
 import { Editors } from './editors.component';
 import { Ckeditor } from './components/ckeditor/ckeditor.component';

@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'checkbox-inputs',
+  selector: 'appcheckboxinputs',
   templateUrl: './checkboxInputs.html',
 })
 export class CheckboxInputs {
@@ -19,7 +19,7 @@ export class CheckboxInputs {
     class: 'col-md-4'
   }];
 
-  isDisabled: boolean = false;
+  isDisabled = false;
 
   public checkboxPropertiesMapping = {
     model: 'checked',

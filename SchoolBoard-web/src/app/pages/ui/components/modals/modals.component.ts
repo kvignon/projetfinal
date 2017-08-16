@@ -3,7 +3,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DefaultModal } from './default-modal/default-modal.component';
 
 @Component({
-  selector: 'modals',
+  selector: 'appmodals',
   styleUrls: ['./modals.scss'],
   templateUrl: './modals.html'
 })

@@ -1,75 +1,38 @@
-package schoolboard.metier.model;
+package schoolboard.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.persistence.Version;
-
-@Entity
-@Table(name = "Classe")
 public class Classe {
 
+	private String nomclasse;
+	private Long idNomPp;
 	private Long id;
-	private String classe;
-	private int version;
-	private Utilisateur client;
-	private EmploiDuTemps edt;
 
 	public Classe() {
+		super();
+}
+
+	public String getNomclasse() {
+		return nomclasse;
 	}
 
-	@Id
-	@GeneratedValue
+	public Long getIdNomPp() {
+		return idNomPp;
+	}
+
 	public Long getId() {
 		return id;
+	}
+
+	public void setNomclasse(String nomclasse) {
+		this.nomclasse = nomclasse;
+	}
+
+	public void setIdNomPp(Long idNomPp) {
+		this.idNomPp = idNomPp;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 	
-	
-
-	@Column(name = "classe", length = 50, unique = true)
-	public String getClasse() {
-		return classe;
-	}
-
-	public void setClasse(String classe) {
-		this.classe = classe;
-	}
-
-	@OneToOne(mappedBy = "classe")
-	@JoinColumn(name="id_utilisateur", referencedColumnName="id")
-	public Utilisateur getClient() {
-		return client;
-	}
-
-	public void setClient(Utilisateur client) {
-		this.client = client;
-	}
-	
-	@Version
-	public int getVersion() {
-		return version;
-	}
-
-	public void setVersion(int version) {
-		this.version = version;
-	}
-	
-	@OneToOne
-	public EmploiDuTemps getEdt() {
-		return edt;
-	}
-
-	public void setEdt(EmploiDuTemps edt) {
-		this.edt = edt;
-	}
 	
 }

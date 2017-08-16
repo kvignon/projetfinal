@@ -4,13 +4,13 @@ import {BaThemeConfigProvider, colorHelper, layoutPaths} from '../../../theme';
 @Injectable()
 export class LineChartService {
 
-  constructor(private _baConfig:BaThemeConfigProvider) {
+  constructor(private _baConfig: BaThemeConfigProvider) {
   }
 
   getData() {
 
-    var layoutColors = this._baConfig.get().colors;
-    var graphColor = this._baConfig.get().colors.custom.dashboardLineChart;
+    const layoutColors = this._baConfig.get().colors;
+    const graphColor = this._baConfig.get().colors.custom.dashboardLineChart;
 
     return {
       type: 'serial',

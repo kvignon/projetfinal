@@ -3,11 +3,11 @@ import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/form
 
 
 @Component({
-    selector: 'app-utilisateur',
+    selector: 'apputilisateur',
     templateUrl: './utilisateur.component.html',
     styleUrls: ['./utilisateur.component.css']
 })
-export class Utilisateur{
+export class Utilisateur {
 
     listeUtilisateur: Array<any>;
 

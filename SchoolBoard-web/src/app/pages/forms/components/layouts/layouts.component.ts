@@ -1,26 +1,26 @@
 import {Component} from '@angular/core';
-import { NgUploaderOptions } from 'ngx-uploader';
+import { NgUploaderModule } from 'ngx-uploader';
 
 @Component({
-  selector: 'layouts',
+  selector: 'applayouts',
   templateUrl: './layouts.html',
 })
 export class Layouts {
 
   public defaultPicture = 'assets/img/theme/no-photo.png';
-  public profile:any = {
+  public profile: any = {
     picture: 'assets/img/app/profile/Nasta.png'
   };
-  public uploaderOptions:NgUploaderOptions = {
+  public uploaderOptions: NgUploaderModule = {
     // url: 'http://website.com/upload'
     url: '',
   };
 
-  public fileUploaderOptions:NgUploaderOptions = {
+  public fileUploaderOptions: NgUploaderModule = {
     // url: 'http://website.com/upload'
     url: '',
   };
-  
+
   constructor() {
   }
 

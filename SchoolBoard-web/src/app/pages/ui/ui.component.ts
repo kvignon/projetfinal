@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'ui',
+  selector: 'appui',
   template: `<router-outlet></router-outlet>`
 })
 export class Ui {

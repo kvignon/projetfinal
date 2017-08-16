@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'inline-form',
+  selector: 'appinlineform',
   styleUrls: ['./inlineForm.scss'],
   templateUrl: './inlineForm.html',
 })
@@ -10,5 +10,5 @@ export class InlineForm {
   constructor() {
   }
 
-  isRemember: boolean = false;
+  isRemember = false;
 }

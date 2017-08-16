@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 
 
 @Component({
-  selector: 'raised-buttons',
+  selector: 'appraisedbuttons',
   templateUrl: './raisedButtons.html',
 })
 export class RaisedButtons {

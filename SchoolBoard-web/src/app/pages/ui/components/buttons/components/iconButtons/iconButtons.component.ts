@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'icon-buttons',
+  selector: 'appiconbuttons',
   templateUrl: './iconButtons.html',
 })
 export class IconButtons {

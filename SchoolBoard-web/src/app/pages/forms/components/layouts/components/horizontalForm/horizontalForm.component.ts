@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'horizontal-form',
+  selector: 'apphorizontalform',
   templateUrl: './horizontalForm.html',
 })
 export class HorizontalForm {
@@ -9,5 +9,5 @@ export class HorizontalForm {
   constructor() {
   }
 
-  isRemember: boolean = false;
+  isRemember = false;
 }

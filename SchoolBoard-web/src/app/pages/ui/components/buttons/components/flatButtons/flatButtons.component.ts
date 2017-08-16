@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 
 
 @Component({
-  selector: 'flat-buttons',
+  selector: 'appflatbuttons',
   templateUrl: './flatButtons.html',
 })
 export class FlatButtons {

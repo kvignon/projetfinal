@@ -1,81 +1,65 @@
-package schoolboard.metier.model;
+package schoolboard.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Version;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
-@Table(name = "Login")
+@Table(name="login")
 public class Login {
-
-	private Long id;
-	private String login;
-	private String motDePasse;
-	private boolean admin;
-	private int version;
-	private Utilisateur client;
-
-	public Login() {
-	}
-
 	@Id
 	@GeneratedValue
+	private Long id;
+	private String nom;
+	private String motDePasse;
+	private Boolean admin;
+	
+@Autowired
+	public Login() {
+		
+}
+
+
 	public Long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+
+	public String getNom() {
+		return nom;
 	}
 
-	@Column(name = "login", length = 50, unique = true)
-	public String getLogin() {
-		return login;
-	}
 
-	public void setLogin(String login) {
-		this.login = login;
-	}
-
-	@Column(name = "motdepasse", length = 50)
 	public String getMotDePasse() {
 		return motDePasse;
 	}
 
+
+	public Boolean getAdmin() {
+		return admin;
+	}
+
+	@Column
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	@Column
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	@Column
 	public void setMotDePasse(String motDePasse) {
 		this.motDePasse = motDePasse;
 	}
 
-	@Column(name = "admin")
-	public boolean isAdmin() {
-		return admin;
-	}
-
-	public void setAdmin(boolean admin) {
+	@Column
+	public void setAdmin(Boolean admin) {
 		this.admin = admin;
 	}
-
-	@OneToOne(mappedBy = "login", fetch = FetchType.LAZY)
-	public Utilisateur getClient() {
-		return client;
-	}
-
-	public void setClient(Utilisateur client) {
-		this.client = client;
-	}
-
-	@Version
-	public int getVersion() {
-		return version;
-	}
-
-	public void setVersion(int version) {
-		this.version = version;
-	}
-
 }

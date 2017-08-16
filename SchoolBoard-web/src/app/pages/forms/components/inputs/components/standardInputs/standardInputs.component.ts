@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'standard-inputs',
+  selector: 'appstandardinputs',
   templateUrl: './standardInputs.html',
 })
 export class StandardInputs {

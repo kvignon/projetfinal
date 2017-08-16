@@ -1,5 +1,5 @@
-import { NgModule, ModuleWithProviders }      from '@angular/core';
-import { CommonModule }  from '@angular/common';
+import { NgModule, ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgUploaderModule } from 'ngx-uploader';
@@ -14,13 +14,12 @@ import {
 } from './theme.configProvider';
 
 import {
-  BaAmChart,
+
   BaBackTop,
   BaCard,
   BaChartistChart,
   BaCheckbox,
   BaContentTop,
-  BaFullCalendar,
   BaMenuItem,
   BaMenu,
   BaMsgCenter,
@@ -35,7 +34,6 @@ import { BaCardBlur } from './components/baCard/baCardBlur.directive';
 
 import {
   BaScrollPosition,
-  BaSlimScroll,
   BaThemeRun
 } from './directives';
 
@@ -58,13 +56,11 @@ import {
 } from './validators';
 
 const NGA_COMPONENTS = [
-  BaAmChart,
   BaBackTop,
   BaCard,
   BaChartistChart,
   BaCheckbox,
   BaContentTop,
-  BaFullCalendar,
   BaMenuItem,
   BaMenu,
   BaMsgCenter,
@@ -77,7 +73,6 @@ const NGA_COMPONENTS = [
 
 const NGA_DIRECTIVES = [
   BaScrollPosition,
-  BaSlimScroll,
   BaThemeRun,
   BaCardBlur
 ];

@@ -5,7 +5,7 @@ import { BaMenuService } from '../theme';
 import { PAGES_MENU } from './pages.menu';
 
 @Component({
-  selector: 'pages',
+  selector: 'apppages',
   template: `
     <ba-sidebar></ba-sidebar>
     <ba-page-top></ba-page-top>
@@ -32,7 +32,7 @@ import { PAGES_MENU } from './pages.menu';
 })
 export class Pages {
 
-  constructor(private _menuService: BaMenuService,) {
+  constructor(private _menuService: BaMenuService, ) {
   }
 
   ngOnInit() {

@@ -1,7 +1,6 @@
-package schoolboard.metier.dao;
+package schoolboard.dao;
 
-import schoolboard.metier.model.Utilisateur;
+import schoolboard.model.Utilisateur;
 
-public interface UtilisateurDao extends Dao<Utilisateur, Long> {
-
+public interface UtilisateurDao extends Dao<Utilisateur, Long>{
 }

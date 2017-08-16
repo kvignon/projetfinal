@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'block-form',
+  selector: 'appblockform',
   templateUrl: './blockForm.html',
 })
 export class BlockForm {

@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'maps',
+  selector: 'appmaps',
   template: `<router-outlet></router-outlet>`
 })
 export class Charts {

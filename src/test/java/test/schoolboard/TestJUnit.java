@@ -2,20 +2,20 @@ package test.schoolboard;
 
 
 
-import static org.junit.Assert.*;
-
 import org.junit.AfterClass;
-
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.util.Assert;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import schoolboard.dao.LoginDao;
 import schoolboard.model.Login;
 
-
-
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = "/applicationContext.xml")
 public class TestJUnit {
 	
 	private static ClassPathXmlApplicationContext context;
@@ -33,10 +33,10 @@ public class TestJUnit {
 	@Test
 	public void testLogin() {
 		LoginDao loginDao = context.getBean(LoginDao.class);
-
+		
 		Login virginie = new Login();
 		
-		virginie.setLogin("Virginie");
+		virginie.setNom("Virginie");
 		virginie.setMotDePasse("vi");
 		virginie.setAdmin(true);
 		

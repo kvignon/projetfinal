@@ -3,20 +3,20 @@ import {Component} from '@angular/core';
 import {LineChartService} from './lineChart.service';
 
 @Component({
-  selector: 'line-chart',
+  selector: 'applinechart',
   templateUrl: './lineChart.html',
   styleUrls: ['./lineChart.scss']
 })
 export class LineChart {
 
-  chartData:Object;
+  chartData: Object;
 
-  constructor(private _lineChartService:LineChartService) {
+  constructor(private _lineChartService: LineChartService) {
     this.chartData = this._lineChartService.getData();
   }
 
-  initChart(chart:any) {
-    let zoomChart = () => {
+  initChart(chart: any) {
+    const zoomChart = () => {
       chart.zoomToDates(new Date(2013, 3), new Date(2014, 0));
     };
 

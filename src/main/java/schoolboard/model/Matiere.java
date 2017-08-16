@@ -1,35 +1,34 @@
-package schoolboard.metier.model;
+package schoolboard.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.persistence.Version;
+import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
+@Table(name = "subject")
 public class Matiere {
-
 	private Long id;
 	private String nom;
-	private List<MatiereUtilisateur> clients;
+	// private List<Formation> formations = new ArrayList<>();
 	private int version;
-	private String couleur;
-	private EmploiDuTemps edt;
-	
-	public Matiere(String nom,String couleur) {
-		super();
-		this.nom = nom;
-		this.couleur = couleur;
-	}
-	
+
 	public Matiere() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
+
+	
 
 	@Id
 	@GeneratedValue
@@ -41,7 +40,8 @@ public class Matiere {
 		this.id = id;
 	}
 
-	@Column(name = "Nom", length = 50)
+	@Column
+	@Size(min=1, message="{matiere.nom.error}")
 	public String getNom() {
 		return nom;
 	}
@@ -50,17 +50,8 @@ public class Matiere {
 		this.nom = nom;
 	}
 
-	@OneToMany(mappedBy = "matiere")
-	public List<MatiereUtilisateur> getClients() {
-		return clients;
-	}
-
-	public void setClients(List<MatiereUtilisateur> clients) {
-		this.clients = clients;
-	}
 
 	@Version
-	@Column(name = "Version")
 	public int getVersion() {
 		return version;
 	}
@@ -68,24 +59,9 @@ public class Matiere {
 	public void setVersion(int version) {
 		this.version = version;
 	}
+	
+	
 
-	public String getCouleur() {
-		return couleur;
-	}
+	
 
-	public void setCouleur(String couleur) {
-		this.couleur = couleur;
-	}
-	
-	@OneToOne
-	public EmploiDuTemps getEdt() {
-		return edt;
-	}
-
-	public void setEdt(EmploiDuTemps edt) {
-		this.edt = edt;
-	}
-	
-	
-	
 }

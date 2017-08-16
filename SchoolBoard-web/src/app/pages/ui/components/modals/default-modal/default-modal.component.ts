@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'add-service-modal',
+  selector: 'appaddservicemodal',
   styleUrls: [('./default-modal.component.scss')],
   templateUrl: './default-modal.component.html'
 })
@@ -10,7 +10,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 export class DefaultModal implements OnInit {
 
   modalHeader: string;
-  modalContent: string = `Lorem ipsum dolor sit amet,
+  modalContent = `Lorem ipsum dolor sit amet,
    consectetuer adipiscing elit, sed diam nonummy
    nibh euismod tincidunt ut laoreet dolore magna aliquam
    erat volutpat. Ut wisi enim ad minim veniam, quis

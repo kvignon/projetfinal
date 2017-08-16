@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'select-inputs',
+  selector: 'appselectinputs',
   styleUrls: ['./selectInput.scss'],
   templateUrl: './selectInputs.html'
 })

@@ -5,7 +5,7 @@ import {PieChartService} from './pieChart.service';
 import 'easy-pie-chart/dist/jquery.easypiechart.js';
 
 @Component({
-  selector: 'pie-chart',
+  selector: 'apppiechart',
   templateUrl: './pieChart.html',
   styleUrls: ['./pieChart.scss']
 })
@@ -30,7 +30,7 @@ export class PieChart {
   private _loadPieCharts() {
 
     jQuery('.chart').each(function () {
-      let chart = jQuery(this);
+      const chart = jQuery(this);
       chart.easyPieChart({
         easing: 'easeOutBounce',
         onStep: function (from, to, percent) {
@@ -48,7 +48,7 @@ export class PieChart {
   }
 
   private _updatePieCharts() {
-    let getRandomArbitrary = (min, max) => { return Math.random() * (max - min) + min; };
+    const getRandomArbitrary = (min, max) => Math.random() * (max - min) + min;
 
     jQuery('.pie-charts .chart').each(function(index, chart) {
       jQuery(chart).data('easyPieChart').update(getRandomArbitrary(55, 90));

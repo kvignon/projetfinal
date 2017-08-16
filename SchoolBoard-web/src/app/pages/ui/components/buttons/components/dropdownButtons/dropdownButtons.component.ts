@@ -1,7 +1,7 @@
 import {Component, HostListener} from '@angular/core';
 
 @Component({
-  selector: 'dropdown-buttons',
+  selector: 'appdropdownbuttons',
   templateUrl: './dropdownButtons.html'
 })
 

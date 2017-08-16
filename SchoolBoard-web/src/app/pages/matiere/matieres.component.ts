@@ -3,7 +3,7 @@ import {Http} from '@angular/http';
 import {Matiere} from '../classes/matiere';
 
 @Component({
-    selector: 'app-matieres',
+    selector: 'appmatieres',
     templateUrl: './matieres.component.html',
     styleUrls: ['./matieres.component.css']
 })

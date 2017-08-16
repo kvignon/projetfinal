@@ -1,4 +1,4 @@
-import { Routes, RouterModule }  from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
 import { Components } from './components.component';
 import { TreeView } from './components/treeView/treeView.component';

@@ -13,7 +13,7 @@
 	<context:annotation-config/>
 	
 	<!-- Activation annotations et scan des classes du package formation.dao -->
-	<context:component-scan base-package="aubay.formation.dao"/>
+	<context:component-scan base-package="schoolboard.dao"/>
 
 	<!-- Chargement du fichier sgbd.properties dans la configuration -->
 	<context:property-placeholder location="classpath:sgbd.properties"/>
@@ -32,7 +32,7 @@
     <bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="packagesToScan" value="aubay.formation.model" />
+		<property name="packagesToScan" value="schoolboard.model" />
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
 				<property name="databasePlatform" value="${db.dialect}" />

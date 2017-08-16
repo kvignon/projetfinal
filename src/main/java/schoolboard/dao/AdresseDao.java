@@ -1,6 +1,6 @@
-package schoolboard.metier.dao;
+package schoolboard.dao;
 
-import schoolboard.metier.model.*;
+import schoolboard.model.Adresse;
 
 public interface AdresseDao extends Dao<Adresse, Long>{
 }

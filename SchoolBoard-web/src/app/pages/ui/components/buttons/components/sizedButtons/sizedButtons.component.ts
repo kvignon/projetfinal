@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 
 
 @Component({
-  selector: 'sized-buttons',
+  selector: 'appsizedbuttons',
   templateUrl: './sizedButtons.html',
 })
 export class SizedButtons {

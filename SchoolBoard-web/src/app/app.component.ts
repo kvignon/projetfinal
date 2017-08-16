@@ -11,8 +11,8 @@ import { layoutPaths } from './theme/theme.constants';
  * Top Level Component
  */
 @Component({
-  selector: 'app',
-  styleUrls: ['./app.component.scss'],
+  selector: 'app', 
+  styleUrls: ['./theme/theme.scss'], 
   template: `
     <main [class.menu-collapsed]="isMenuCollapsed" baThemeRun>
       <div class="additional-bg"></div>
@@ -20,9 +20,9 @@ import { layoutPaths } from './theme/theme.constants';
     </main>
   `
 })
-export class App {
+export class app {
 
-  isMenuCollapsed: boolean = false;
+  isMenuCollapsed = false;
 
   constructor(private _state: GlobalState,
               private _imageLoader: BaImageLoaderService,
