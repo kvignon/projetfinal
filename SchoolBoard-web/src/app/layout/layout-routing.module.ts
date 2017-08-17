@@ -15,6 +15,7 @@ const routes: Routes = [
             { path: 'components', loadChildren: './bs-component/bs-component.module#BsComponentModule' },
             { path: 'register', loadChildren: './register/register.module#RegisterModule' },
             { path: 'utilisateur+', loadChildren: './utilisateur/utilisateur.module#UtilisateurModule' },
+            { path: 'calendrier', loadChildren: './calendrier/calendrier.module#CalendarModule' },   
             { path: 'etablissement', loadChildren: './etablissement/etablissement.module#EtablissementModule' },
             { path: 'salle', loadChildren: './salle/salle.module#SalleModule' },
             { path: 'classes', loadChildren: './classes/classes.module#ClassesModule' },
