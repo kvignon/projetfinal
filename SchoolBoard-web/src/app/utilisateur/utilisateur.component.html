@@ -1,0 +1,5 @@
+<div >
+	<app-utilisateur *ngFor="let utilisateurCourant of listeUtilisateur"
+	 [unUtilisateur]="utilisateurCourant" (utilisateurSelectionne)="clickSurunUtilisateur($event)">
+	</app-utilisateur>
+</div>

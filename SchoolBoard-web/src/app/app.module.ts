@@ -1,68 +1,39 @@
-import { NgModule, ApplicationRef } from '@angular/core';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Http, HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateService } from '@ngx-translate/core';
-import { SlimScrollModule } from 'ng2-slimscroll';
-
-/*
- * Platform and Environment providers/directives/pipes
- */
-import { routing } from './app.routing';
-
-// App is our top level component
-import { app } from './app.component';
-import { AppState, InternalStateType } from './app.service';
-import { GlobalState } from './global.state';
-import { NgaModule } from './theme/nga.module';
-import { PagesModule } from './pages/pages.module';
-import { NgUploaderModule } from 'ngx-uploader';
-import {CKEditorModule} from 'ng2-ckeditor';
-
-
-
-// Application wide providers
-const APP_PROVIDERS = [
-  AppState,
-  GlobalState
-];
-
-export interface StoreType {
-  state: InternalStateType;
-  restoreInputValues: () => void;
-  disposeOldHosts: () => void;
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { AuthGuard } from './shared';
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: Http) {
+    // for development
+    // return new TranslateHttpLoader(http, '/start-angular/SB-Admin-BS4-Angular-4/master/dist/assets/i18n/', '.json');
+    return new TranslateHttpLoader(http, '/assets/i18n/', '.json');
 }
-
-/**
- * `AppModule` is the main entry point into Angular2's bootstraping process
- */
 @NgModule({
-  bootstrap: [app],
-  declarations: [
-    app
-  ],
-
-  imports: [
-    BrowserModule,
-    RouterModule,
-    FormsModule,
-    ReactiveFormsModule,
-    NgaModule.forRoot(),
-    NgbModule.forRoot(),
-    PagesModule,
-    NgUploaderModule,
-    routing
-  ],
-
-  providers: [
-    APP_PROVIDERS
-
-  ],
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        HttpModule,
+        AppRoutingModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [Http]
+            }
+        })
+    ],
+    providers: [AuthGuard],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(public appState: AppState) {
-  }
 }
-
